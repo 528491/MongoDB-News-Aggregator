@@ -1,0 +1,35 @@
+{
+  "name": "mongodb-news-aggregator",
+  "version": "1.0.0",
+  "description": "Web application that finds news articles around the web and allows users to comment. Data is stored in a MongoDB backend.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/528491/MongoDB-News-Aggregator.git"
+  },
+  "keywords": [
+    "MongoDB",
+    "News",
+    "Aggregation",
+    "Aggregator",
+    "Express",
+    "NoSQL"
+  ],
+  "author": "528491",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/528491/MongoDB-News-Aggregator/issues"
+  },
+  "homepage": "https://github.com/528491/MongoDB-News-Aggregator#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cheerio": "^1.0.0-rc.2",
+    "express": "^4.16.3",
+    "express-handlebars": "^3.0.0",
+    "mongoose": "^5.2.1",
+    "request": "^2.87.0"
+  }
+}
