@@ -4,20 +4,21 @@ var request = require("request");
 
 
 module.exports.index = function(req, res){
-    
-    request("https://www.cnn.com/", function(error, response, html){
+    var results = [];
+    request("https://www.nytimes.com/", function(error, response, html){
         var $ = cheerio.load(html);
-        var results = [];
 
-        $("span").each(function(i, element){
-            console.log(element);
+        $("a").each(function(i, element){
+            //console.log(element);
+            var headlineInfo = {};
+
+            headlineInfo.title = $(element).text();
+            headlineInfo.link = $(element).attr("href");
+
+            results.push(headlineInfo);
+            console.log(headlineInfo);
         });
     });
-    
-    
-    
-    
-    
-    
-    res.render('home');
+        
+    res.render('home', {results: results});
 }

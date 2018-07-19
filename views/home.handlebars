@@ -1,0 +1,23 @@
+<h1>Headlines</h1>
+
+
+    {{#each results}}
+        <div class="card p-3">
+            
+            <div class="card-header">
+                <p>{{this.title}}</p>
+            </div>
+
+            <div class="card-body">
+                
+            </div>
+
+            <div class="card-footer">
+                <p>{{this.link}}</p>
+            </div>
+
+        </div>
+        <div class="container">
+            <!--Empty div for spacing -->
+        </div>
+    {{/each}}
