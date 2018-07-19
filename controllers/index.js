@@ -16,9 +16,8 @@ module.exports.index = function(req, res){
             headlineInfo.link = $(element).attr("href");
 
             results.push(headlineInfo);
-            console.log(headlineInfo);
         });
+        console.log(results);
+        res.render('home', {results});
     });
-        
-    res.render('home', {results: results});
 }
