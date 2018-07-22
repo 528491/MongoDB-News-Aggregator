@@ -1,23 +1,9 @@
-var cheerio = require("cheerio");
-var request = require("request");
-
-
+var scrape = require("../scripts/scrape");
 
 module.exports.index = function(req, res){
-    var results = [];
-    request("https://www.nytimes.com/", function(error, response, html){
-        var $ = cheerio.load(html);
+    scrape.scrapeNYTimes();
+    var headlines = scrape.scrapedData;
+    console.log(scrape.scrapedData);
 
-        $("a").each(function(i, element){
-            //console.log(element);
-            var headlineInfo = {};
-
-            headlineInfo.title = $(element).text();
-            headlineInfo.link = $(element).attr("href");
-
-            results.push(headlineInfo);
-        });
-        console.log(results);
-        res.render('home', {results});
-    });
-}
+    res.render('home', {headlines});
+};
