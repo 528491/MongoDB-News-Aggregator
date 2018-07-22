@@ -1,10 +1,14 @@
 var cheerio = require("cheerio");
 var request = require("request");
+var mongoose = require("mongoose");
+var headline = require("../models/headline")
+
+mongoose.connect("mongodb://localhost:27017/mongoDBHW");
 
 var webScraper = {
-    
+
     scrapedData: [],
-    scrapeNYTimes: function(){
+    scrapeNYTimes: function() {
         var results = [];
         request("https://www.nytimes.com/", function(error, response, html){
             var $ = cheerio.load(html);
@@ -16,9 +20,20 @@ var webScraper = {
                 headlineInfo.title = $(element).text();
                 headlineInfo.link = $(element).attr("href");
 
-                this.scrapedData.push(headlineInfo);
+                //console.log(headlineInfo);
+
+                headline.create(headlineInfo)
+                    .then(function(dbHeadline){
+                        console.log(dbHeadline);
+                    })
+                    .catch(function(error){
+                        console.log(error);
+                    });
+
+                results.push(headlineInfo);
             }); 
         });
+        this.scrapedData = results;
     }
 }
 

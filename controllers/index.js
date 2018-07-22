@@ -1,4 +1,5 @@
 var scrape = require("../scripts/scrape");
+var headline = require("../models/headline")
 
 module.exports.index = function(req, res){
     scrape.scrapeNYTimes();
