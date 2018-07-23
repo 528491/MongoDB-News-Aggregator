@@ -24,7 +24,7 @@ var webScraper = {
 
                 headline.create(headlineInfo)
                     .then(function(dbHeadline){
-                        console.log(dbHeadline);
+                        //console.log(dbHeadline);
                     })
                     .catch(function(error){
                         console.log(error);
