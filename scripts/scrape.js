@@ -1,7 +1,7 @@
 var cheerio = require("cheerio");
 var request = require("request");
 var mongoose = require("mongoose");
-var headline = require("../models/headline")
+var headline = require("../models/headline.js")
 
 // If deployed, use the deployed database. Otherwise use the local mongoHeadlines database
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost:27017/mongoDBHW";
