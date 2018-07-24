@@ -2,7 +2,11 @@ var scrape = require("../scripts/scrape");
 var Headline = require("../models/headline");
 var mongoose = require("mongoose");
 
-mongoose.connect("mongodb://localhost:27017/mongoDBHW");
+
+// If deployed, use the deployed database. Otherwise use the local mongoHeadlines database
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost:27017/mongoDBHW";
+mongoose.connect(MONGODB_URI);
+
 
 module.exports.index = function(req, res){
     scrape.scrapeNYTimes();
